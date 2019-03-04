@@ -1,9 +1,7 @@
 /Users/adeguzman0923/Documents/eclipseWorkspace/LocationCategorizer/src/main/java/com/devtest/repository/ContinentRepo.java
 /Users/adeguzman0923/Documents/eclipseWorkspace/LocationCategorizer/src/main/java/com/devtest/controller/CountryController.java
 /Users/adeguzman0923/Documents/eclipseWorkspace/LocationCategorizer/src/main/java/com/devtest/controller/ContinentController.java
-/Users/adeguzman0923/Documents/eclipseWorkspace/LocationCategorizer/src/main/java/com/devtest/dao/ContinentDAO.java
-/Users/adeguzman0923/Documents/eclipseWorkspace/LocationCategorizer/src/main/java/com/devtest/exceptionhandlers/ResourceNotFoundException.java
 /Users/adeguzman0923/Documents/eclipseWorkspace/LocationCategorizer/src/main/java/com/devtest/model/CountryModel.java
+/Users/adeguzman0923/Documents/eclipseWorkspace/LocationCategorizer/src/main/java/com/devtest/InvokeLocationCategorizer.java
 /Users/adeguzman0923/Documents/eclipseWorkspace/LocationCategorizer/src/main/java/com/devtest/repository/CountryRepo.java
-/Users/adeguzman0923/Documents/eclipseWorkspace/LocationCategorizer/src/main/java/com/devtest/InvokeLocationCatogarizer.java
 /Users/adeguzman0923/Documents/eclipseWorkspace/LocationCategorizer/src/main/java/com/devtest/model/ContinentModel.java
