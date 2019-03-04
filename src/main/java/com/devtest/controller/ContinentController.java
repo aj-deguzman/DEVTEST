@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,30 +40,8 @@ public class ContinentController {
 	return cr.save(cm);
     }
 
-    /* update continent by ID */
-    @PutMapping("/continents/{contId}")
-    public ContinentModel updateContinent(@PathVariable(value = "contId") Long contId,
-	    @Valid @RequestBody ContinentModel contDetails) {
-	Optional<ContinentModel> optionalCont = cr.findById(contId);
-	ContinentModel cont = optionalCont.get();
-
-//	if (cont == null) {
-//	    logger.error("[" + ContinentController.class.getSimpleName() + "] - ID: " + contId + ", Details: "
-//		    + contDetails + ", Error: " + ResponseEntity.notFound().build());
-//
-//	    return new ResourceNotFoundException("PostId " + postId + " not found")).;
-//	}
-
-	cont.setId(contDetails.getId().longValue());
-	cont.setHemisphere(contDetails.getHemisphere());
-
-	ContinentModel updateCont = cr.save(cont);
-
-	return updateCont;
-    }
-
     /* delete Continent */
-    @DeleteMapping("/continents{contId}")
+    @DeleteMapping("/continents/{contId}")
     public ResponseEntity<ContinentModel> deleteContinent(@PathVariable(value = "contId") Long contId) {
 	Optional<ContinentModel> optionalCont = cr.findById(contId);
 	ContinentModel cont = optionalCont.get();

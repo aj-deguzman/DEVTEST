@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,13 +32,13 @@ public class CountryController {
     ContinentRepo conR;
 
     /* get all country */
-    @GetMapping("/continent/{contId}/countries")
+    @GetMapping("/continents/{contId}/countries")
     public Page<CountryModel> getAllCountriesByContId(@PathVariable(value = "contId") Long contId, Pageable pageable) {
 	return couR.findByContinentId(contId, pageable);
     }
 
     /* save country */
-    @PostMapping("/continent/{contId}/countries")
+    @PostMapping("/continents/{contId}/countries")
     public CountryModel createCountry(@PathVariable(value = "contId") Long contId,
 	    @Valid @RequestBody CountryModel cm) {
 	logger.info("[" + CountryController.class.getSimpleName() + "] - Saving Continent: " + cm.getName());
@@ -51,36 +50,8 @@ public class CountryController {
 	return couR.save(cm);
     }
 
-    /* update country by ID */
-    @PutMapping("/continent/{contId}/countries/{counId}")
-    public CountryModel updateCountry(@PathVariable(value = "contId") Long contId,
-	    @PathVariable(value = "counId") Long counId, @Valid @RequestBody CountryModel counDetails) {
-	if (!conR.existsById(contId)) {
-	    // Throw Exception
-	}
-
-	Optional<CountryModel> optionalCoun = couR.findById(counId);
-	CountryModel coun = optionalCoun.get();
-
-//	if (cont == null) {
-//	    logger.error("[" + CountryController.class.getSimpleName() + "] - ID: " + contId + ", Details: "
-//		    + contDetails + ", Error: " + ResponseEntity.notFound().build());
-//
-//	    return new ResourceNotFoundException("PostId " + postId + " not found")).;
-//	}
-
-	coun.setId(counDetails.getId());
-	coun.setName(counDetails.getName());
-	coun.setState(counDetails.getState());
-	coun.setCity(counDetails.getCity());
-
-	CountryModel updateCoun = couR.save(coun);
-
-	return updateCoun;
-    }
-
     /* delete country */
-    @DeleteMapping("/continent/{contId}/countries/{counId}")
+    @DeleteMapping("/continents/{contId}/countries/{counId}")
     public ResponseEntity<CountryModel> deleteContinent(@PathVariable(value = "contId") Long contId,
 	    @PathVariable(value = "counId") Long counId) {
 	Optional<CountryModel> optionalCoun = couR.findById(counId);
